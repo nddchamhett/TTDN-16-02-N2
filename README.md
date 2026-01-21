@@ -30,7 +30,7 @@ sudo apt-get install libxml2-dev libxslt-dev libldap2-dev libsasl2-dev libssl-de
 ```
 ## 1.3. khởi tạo môi trường ảo.
 ```
-python3.10 -m venv ./venv`
+python3.10 -m venv ./venv
 ```
 ## 1.4. Thay đổi trình thông dịch sang môi trường ảo.
 ```
