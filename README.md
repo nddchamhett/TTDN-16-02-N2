@@ -13,7 +13,7 @@
 
 ## 1.1. Clone project.
 ```
-git clone https://gitlab.com/anhlta/odoo-fitdnu.git
+git clone https://github.com/FIT-DNU/Business-Internship.git
 ```
 ```
 cd TTDN-16-02-N2
