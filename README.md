@@ -44,7 +44,7 @@ Khởi tạo database trên docker bằng việc thực thi file dockercompose.y
 sudo apt install docker-compose
 ```
 ```
-sudo docker compose up -d
+sudo docker-compose up -d
 ```
 Nếu lỗi có thể tải Docker Desktop về tại https://www.docker.com/get-started/
 # 3. Setup tham số chạy cho hệ thống
