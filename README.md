@@ -15,9 +15,6 @@
 ```
 git clone https://github.com/FIT-DNU/Business-Internship.git
 ```
-```
-cd TTDN-16-02-N2
-```
 ## 1.2. cài đặt các thư viện cần thiết
 
 Người sử dụng thực thi các lệnh sau đề cài đặt các thư viện cần thiết
