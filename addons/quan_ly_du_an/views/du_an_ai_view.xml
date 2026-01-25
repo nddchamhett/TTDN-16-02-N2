@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_du_an_form_ai_inherit" model="ir.ui.view">
+        <field name="name">du_an.form.ai.inherit</field>
+        <field name="model">du_an</field>
+        <field name="inherit_id" ref="view_du_an_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet" position="before">
+                <header>
+                    <button name="action_ai_goi_y_nhan_su" type="object" string="AI gợi ý nhân sự"
+                            class="btn-primary" attrs="{'invisible': [('ai_enabled', '=', False)]}"/>
+                    <button name="action_ai_de_xuat_cong_viec" type="object" string="AI tạo công việc"
+                            class="btn-secondary" attrs="{'invisible': [('ai_enabled', '=', False)]}"/>
+                </header>
+            </xpath>
+
+            <xpath expr="//sheet" position="inside">
+                <field name="ai_enabled" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="AI">
+                    <group col="2">
+                        <field name="ai_last_team_note" readonly="1"/>
+                        <field name="ai_last_team_suggestion" readonly="1"/>
+                        <field name="ai_last_tasks_suggestion" readonly="1"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

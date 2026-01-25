@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_inherit" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.quan_ly_du_an</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="AI (Quản lý dự án)" string="AI (Quản lý dự án)" data-key="quan_ly_du_an">
+                    <h2>Cấu hình AI cho Quản lý dự án</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="ai_enabled"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="ai_enabled" string="Bật AI"/>
+                                <div class="text-muted">
+                                    Bật tính năng AI gợi ý nhân sự và công việc cho dự án
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible': [('ai_enabled', '=', False)]}">
+                            <div class="o_setting_right_pane">
+                                <label for="ai_api_key" string="API Key (Bắt buộc)"/>
+                                <field name="ai_api_key" placeholder="AIza... (Lấy từ Google AI Studio)" required="1"/>
+                                <div class="text-muted">
+                                    Lấy API key miễn phí tại: https://aistudio.google.com/apikey
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible': [('ai_enabled', '=', False)]}">
+                            <div class="o_setting_right_pane">
+                                <label for="ai_base_url" string="Base URL"/>
+                                <field name="ai_base_url" placeholder="https://generativelanguage.googleapis.com/v1beta"/>
+                                <div class="text-muted">
+                                    Mặc định: https://generativelanguage.googleapis.com/v1beta
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible': [('ai_enabled', '=', False)]}">
+                            <div class="o_setting_right_pane">
+                                <label for="ai_model" string="Model"/>
+                                <field name="ai_model" placeholder="gemini-2.5-flash"/>
+                                <div class="text-muted">
+                                    Các model khả dụng:<br/>
+                                    • <strong>gemini-2.5-flash</strong> (khuyến nghị - ổn định, nhanh)<br/>
+                                    • <strong>gemini-3-flash-preview</strong> (mới nhất - experimental)<br/>
+                                    • gemini-1.5-flash (cũ hơn nhưng ổn định)<br/>
+                                    • gemini-1.5-pro (chậm hơn, thông minh hơn)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible': [('ai_enabled', '=', False)]}">
+                            <div class="o_setting_right_pane">
+                                <label for="ai_timeout" string="Timeout (giây)"/>
+                                <field name="ai_timeout"/>
+                                <div class="text-muted">
+                                    Thời gian chờ tối đa cho mỗi request AI (mặc định: 30 giây)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
