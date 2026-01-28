@@ -25,6 +25,26 @@
         <field name="model">du_an</field>
         <field name="arch" type="xml">
             <form string="Dự Án">
+                <header>
+                    <!-- Nút Tạm dừng: hiển thị khi dự án đang thực hiện hoặc chưa bắt đầu -->
+                    <button name="action_tam_dung_du_an" 
+                            string="Tạm Dừng" 
+                            type="object" 
+                            class="oe_highlight"
+                            attrs="{'invisible': ['|', ('tien_do_du_an', '=', 'tam_dung'), ('tien_do_du_an', '=', 'hoan_thanh')]}"/>
+                    
+                    <!-- Nút Tiếp tục: chỉ hiển thị khi dự án đang tạm dừng -->
+                    <button name="action_tiep_tuc_du_an" 
+                            string="Tiếp Tục" 
+                            type="object" 
+                            class="btn-success"
+                            attrs="{'invisible': [('tien_do_du_an', '!=', 'tam_dung')]}"/>
+                    
+                    <!-- Hiển thị trạng thái dưới dạng statusbar -->
+                    <field name="tien_do_du_an" widget="statusbar" 
+                           statusbar_visible="chua_bat_dau,dang_thuc_hien,hoan_thanh"
+                           readonly="1"/>
+                </header>
                 <sheet>
                     <group col="4">
                         <field name="ten_du_an"/>
@@ -36,8 +56,7 @@
                         <field name="ngay_bat_dau" required="1"/>
                         <field name="ngay_ket_thuc"/>
                     </group>
-                    <group col="4" string="Trạng Thái &amp; Tiến Độ">
-                        <field name="tien_do_du_an" readonly="1"/>
+                    <group col="4" string="Tiến Độ">
                         <field name="phan_tram_du_an" widget="progressbar" readonly="1"/>
                     </group>
 

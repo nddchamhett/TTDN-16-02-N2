@@ -35,7 +35,7 @@ class DuAn(models.Model):
         ('dang_thuc_hien', 'Đang Thực Hiện'),
         ('hoan_thanh', 'Hoàn Thành'),
         ('tam_dung', 'Tạm Dừng')
-    ], string="Trạng Thái Dự Án", compute='_compute_tien_do_du_an', store=True, default='chua_bat_dau')
+    ], string="Trạng Thái Dự Án", compute='_compute_tien_do_du_an', store=True, default='chua_bat_dau', readonly=False)
     phan_tram_du_an = fields.Float(string="Tiến Độ Dự Án (%)", default=0.0, readonly=True)
 
     # AI fields
@@ -51,9 +51,15 @@ class DuAn(models.Model):
 
     @api.depends('ngay_bat_dau', 'ngay_ket_thuc', 'phan_tram_du_an')
     def _compute_tien_do_du_an(self):
-        """Tự động cập nhật trạng thái dự án theo thời gian và tiến độ"""
+        """Tự động cập nhật trạng thái dự án theo thời gian và tiến độ
+        Lưu ý: Không tự động thay đổi nếu đang ở trạng thái 'Tạm dừng'
+        """
         today = date.today()
         for record in self:
+            # Nếu đang tạm dừng, giữ nguyên trạng thái
+            if record.tien_do_du_an == 'tam_dung':
+                continue
+                
             if not record.ngay_bat_dau:
                 record.tien_do_du_an = 'chua_bat_dau'
             elif today < record.ngay_bat_dau:
@@ -76,6 +82,58 @@ class DuAn(models.Model):
             if record.ngay_ket_thuc and record.ngay_bat_dau:
                 if record.ngay_ket_thuc < record.ngay_bat_dau:
                     raise ValidationError("Ngày kết thúc không thể sớm hơn ngày bắt đầu.")
+
+    def action_tam_dung_du_an(self):
+        """Chuyển dự án sang trạng thái Tạm dừng"""
+        for record in self:
+            if record.tien_do_du_an == 'tam_dung':
+                raise UserError("Dự án đã ở trạng thái Tạm dừng rồi!")
+            if record.tien_do_du_an == 'hoan_thanh':
+                raise UserError("Không thể tạm dừng dự án đã hoàn thành!")
+            
+            record.tien_do_du_an = 'tam_dung'
+        
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': 'Tạm dừng dự án',
+                'message': f'Dự án "{self.ten_du_an}" đã được tạm dừng.',
+                'type': 'warning',
+                'sticky': False,
+            }
+        }
+    
+    def action_tiep_tuc_du_an(self):
+        """Tiếp tục dự án từ trạng thái Tạm dừng"""
+        for record in self:
+            if record.tien_do_du_an != 'tam_dung':
+                raise UserError("Chỉ có thể tiếp tục dự án đang ở trạng thái Tạm dừng!")
+            
+            # Tính lại trạng thái dựa trên ngày tháng
+            today = date.today()
+            if not record.ngay_bat_dau:
+                record.tien_do_du_an = 'chua_bat_dau'
+            elif today < record.ngay_bat_dau:
+                record.tien_do_du_an = 'chua_bat_dau'
+            elif record.ngay_ket_thuc and today > record.ngay_ket_thuc:
+                if record.phan_tram_du_an >= 100:
+                    record.tien_do_du_an = 'hoan_thanh'
+                else:
+                    record.tien_do_du_an = 'dang_thuc_hien'
+            else:
+                record.tien_do_du_an = 'dang_thuc_hien'
+        
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': 'Tiếp tục dự án',
+                'message': f'Dự án "{self.ten_du_an}" đã được tiếp tục.',
+                'type': 'success',
+                'sticky': False,
+            }
+        }
 
     @api.model
     def create(self, vals):
