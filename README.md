@@ -40,7 +40,7 @@ Hệ thống cho phép:
 
 Hình ảnh hệ thống: 
 <p align="center">
-  <img src="docs/images/Gemini_Generated_Image_pkt8q1pkt8q1pkt8.png"
+  <img src="docs/images/mermaid-diagram-2026-01-28-173203.png"
        alt="System Architecture"
        width="850"/>
 </p>
