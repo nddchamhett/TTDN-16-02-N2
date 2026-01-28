@@ -117,4 +117,13 @@ python3 odoo-bin.py -c odoo.conf -u [tên module]
 
 Người sử dụng truy cập theo đường dẫn _http://localhost:8069/_ để đăng nhập vào hệ thống.
 
+## 🔎 Nguồn tham khảo
+Dự án có tham khảo và kế thừa tài nguyên từ:
+- [TTDN-15-03-N6](https://github.com/HDatz/TTDN-15-03-N6) - HDatz
+
+---
+
+
+## 📄 License
+© 2024 AIoTLab, Faculty of Information Technology, DaiNam University. All rights reserved.
     
