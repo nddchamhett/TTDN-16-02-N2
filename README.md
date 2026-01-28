@@ -50,10 +50,10 @@ Hình ảnh hệ thống:
 ### Phân hệ Nhân sự
 | |  |
 |:---:|:---:|
-| ![AI Chatbot](./docs/images/1.png) | ![Cấu hình AI](./docs/images/2.png) |
+| ./docs/images/1.png | ./docs/images/2.png |
 | *Giao diện chính quản lý nhân sự* | *Giao diện lịch sử công tác* |
 
-| Dự báo & Phân tích | Hiệu quả sử dụng |
+|  |  |
 |:---:|:---:|
 | ![Dự đoán AI](./docs/images/3.png) | ![Phân tích hiệu quả](./docs/images/4.png) |
 | *Dự đoán xu hướng bảo trì và khấu hao* | *Phân tích hiệu quả khai thác tài sản* |
