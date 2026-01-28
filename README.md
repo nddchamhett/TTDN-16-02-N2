@@ -40,6 +40,11 @@ Hệ thống cho phép:
 - Hỗ trợ phân tích hiệu suất và cảnh báo trễ tiến độ
 - Sẵn sàng mở rộng tích hợp AI hỗ trợ ra quyết định
 
+<p align="center">
+  <img src="docs/images/Gemini_Generated_Image_pkt8q1pkt8q1pkt8.png"
+       alt="System Architecture"
+       width="850"/>
+</p>
 # 1. Cài đặt công cụ, môi trường và các thư viện cần thiết
 
 ## 1.1. Clone project.
