@@ -18,6 +18,7 @@
                             <field name="so_nguoi_bang_tuoi"/>
                             <field name="que_quan"/>
                             <field name="email"/>
+                            <field name="so_dien_thoai"/>
                             <field name="anh" widget="image"/>
                         </group>
                         <notebook>
@@ -49,6 +50,7 @@
                     <field name="so_nguoi_bang_tuoi"/>
                     <field name="que_quan"/>
                     <field name="email"/>
+                    <field name="so_dien_thoai"/>
                 </tree>
             </field>
         </record>
