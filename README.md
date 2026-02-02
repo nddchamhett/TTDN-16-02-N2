@@ -95,7 +95,7 @@ https://github.com/FIT-DNU/Business-Internship.git
 ```
 ## 1.2. cài đặt các thư viện cần thiết
 
-Người sử dụng thực thi các lệnh sau đề cài đặt các thư viện cần thiết
+Người sử dụng thực thi các lệnh sau để cài đặt các thư viện cần thiết
 
 ```
 sudo apt-get install libxml2-dev libxslt-dev libldap2-dev libsasl2-dev libssl-dev python3.10-distutils python3.10-dev build-essential libssl-dev libffi-dev zlib1g-dev python3.10-venv libpq-dev
@@ -128,10 +128,12 @@ sudo docker compose up -d
 Nếu lỗi có thể tải Docker Desktop về tại https://www.docker.com/get-started/
 # 3. Setup tham số chạy cho hệ thống
 ## 3.1. Khởi tạo odoo.conf
+Tạo tệp **odoo.conf**
+
 ```
 nano odoo.conf
 ```
-Tạo tệp **odoo.conf** có nội dung như sau:
+Nội dung **odoo.conf** như sau:
 
 ```
 [options]
