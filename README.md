@@ -38,7 +38,7 @@ Hệ thống cho phép:
 - Quản lý dự án và tiến độ tổng thể
 - Gợi ý nhân sự và tạo công việc tự động bằng AI
 
-Hình ảnh hệ thống: 
+Hình ảnh luồng hoạt động: 
 <p align="center">
   <img src="docs/images/mermaid-diagram-2026-01-28-173203.png"
        alt="System Architecture"
