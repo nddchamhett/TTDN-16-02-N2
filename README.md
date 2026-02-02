@@ -84,7 +84,7 @@ Hình ảnh hệ thống:
 |:---:|
 | ![Biểu đồ](./docs/images/11.png) | 
 | *Giao diện biểu đồ tiến độ dự án* |  
-
+# 1. Cài đặt dự án
 ## 1.1. Clone project.
 ```
 https://github.com/nddchamhett/TTDN-16-02-N2.git
