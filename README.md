@@ -161,7 +161,7 @@ Người sử dụng truy cập theo đường dẫn _http://localhost:8069/_ đ
 
 # 5. Poster hệ thống
 
-Hình ảnh hệ thống: 
+Poster hệ thống: 
 <p align="center">
   <img src="docs/images/poster.png"
        alt="System Architecture"
