@@ -56,7 +56,7 @@ Hình ảnh hệ thống:
 |  |  
 |:---:|
 | ![Chứng chỉ, bằng cấp](./docs/images/3.png) | 
-| *Giao diện danh sách chứng chỉ bằng cấp* |  
+| *Giao diện danh sách chứng chỉ, bằng cấp* |  
 
 ### Module quản lý công việc
 | |  |
